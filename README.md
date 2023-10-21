@@ -56,6 +56,3 @@ If you find any issues or have suggestions for improvements, please open an issu
 
 This project is open-source and available under the [MIT License](LICENSE).
 
----
-
-This structure should now correctly reference both scripts and provide clear instructions for GitHub users. You can update your `README.md` on GitHub with this content.
