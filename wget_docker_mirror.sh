@@ -79,11 +79,18 @@ if ! wget --mirror --convert-links --adjust-extension --page-requisites --no-par
  echo "Error: Failed to mirror the website."
  exit 1
 fi
+
+# Check if the mirrored content is present
+if [ ! -f "$save_path/index.html" ]; then
+ echo "Error: Mirrored content not found. Please ensure the website was mirrored correctly."
+ exit 1
+fi
+
 # Create Dockerfile
 echo "Creating Dockerfile..."
 cat <<EOL > "$save_path/Dockerfile"
 FROM nginx:alpine
-COPY ./ /usr/share/nginx/html
+COPY . /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 EOL
